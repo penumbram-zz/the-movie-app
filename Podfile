@@ -1,15 +1,12 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
+use_frameworks!
+
+def all_pods
+    pod 'Alamofire', '4.4.0'
+    pod 'SDWebImage', '3.8.2'
+    pod 'SVProgressHUD', '2.1.2'
+end
 
 target 'The Movie App' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for The Movie App
-
-  target 'The Movie AppTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+  all_pods
 end
