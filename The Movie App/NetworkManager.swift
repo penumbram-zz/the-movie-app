@@ -8,8 +8,8 @@
 
 // Url to the desired API.
 let apiKey = "2696829a81b1b5827d515ff121700838"
-let url = "http://api.themoviedb.org/3/search/movie"
-let imageEndPoint = "http://image.tmdb.org/t/p/w185"
+let endpointSearch = "http://api.themoviedb.org/3/search/movie"
+let endpointImage = "http://image.tmdb.org/t/p/w185"
 
 import Foundation
 import Alamofire

@@ -17,16 +17,15 @@ extension MoviesViewController {
         {
             cell = MoviesTableViewCell(style: .default, reuseIdentifier: cellReuseIdentifier)
         }
+        
         cell?.selectedBackgroundView = UIView()
         let movie = self.movies[indexPath.row]
         cell!.lblTop.text = movie.title
-        cell!.lblMiddle.text = "Release Date: \(movie.releaseDate?.stringValue())"
+        cell!.lblMiddle.text = movie.releaseDate!.stringValue()
         cell!.lblBottom.text = movie.overview
-        cell!.ivMain.sd_setImage(with: URL(string: "\(imageEndPoint)\(movie.posterPath!)"))
+        cell!.ivMain.sd_setImage(with: URL(string: "\(endpointImage)\(movie.posterPath!)"))
+        cell!.layoutIfNeeded()
         return cell!
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
-    }
+
 }

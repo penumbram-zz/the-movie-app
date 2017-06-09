@@ -21,6 +21,8 @@ class MoviesViewController: UITableViewController, MoviesViewInterface {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 150.0;
         self.presenter.updateView()
     }
     

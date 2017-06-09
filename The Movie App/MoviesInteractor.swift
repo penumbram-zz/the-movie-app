@@ -28,11 +28,9 @@ class MoviesInteractor : MoviesInteractorInput
     // Reference to the Presenter's output interface.
     weak var output: MoviesInteractorOutput!
     
-    
     // MARK: MoviesInteractorInput
-    
     func fetchMovies() {
-        NetworkManager.sharedInstance.request(url, method: .get, parameters: ["api_key" : apiKey, "query" : "batman"]).responseObject { (response: DataResponse<MovieResponse>) in
+        NetworkManager.sharedInstance.request(endpointSearch, method: .get, parameters: ["api_key" : apiKey, "query" : "batman"]).responseObject { (response: DataResponse<MovieResponse>) in
             if let movieResponse = response.result.value {
                 //TODO: make it into Movie object instead of NSDictionary
                 self.output.moviesFetched(movies: movieResponse.results!)
