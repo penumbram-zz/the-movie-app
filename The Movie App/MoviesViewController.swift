@@ -34,21 +34,6 @@ class MoviesViewController: UITableViewController, MoviesViewInterface {
     func showNoContentScreen() {
         // TODO: Show custom empty screen.
     }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier)
-        if (cell == nil)
-        {
-            cell = UITableViewCell(style: .default, reuseIdentifier: cellReuseIdentifier)
-        }
-        cell?.selectedBackgroundView = UIView()
-        cell?.textLabel?.text = self.movies[indexPath.row].title
-        return cell!
-    }
 
 }
 

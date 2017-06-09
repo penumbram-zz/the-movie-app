@@ -21,6 +21,11 @@
 		B7139C3E1EDF6D9A004D3A42 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7139C3D1EDF6D9A004D3A42 /* RootRouter.swift */; };
 		B7139C401EDF6DDC004D3A42 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7139C3F1EDF6DDC004D3A42 /* RootWireframe.swift */; };
 		B75F632D1EE9345D00FFB2B9 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F632C1EE9345D00FFB2B9 /* Response.swift */; };
+		B75F632F1EE978C600FFB2B9 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F632E1EE978C600FFB2B9 /* MovieTableViewCell.swift */; };
+		B75F63311EEA91B200FFB2B9 /* Date+Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F63301EEA91B200FFB2B9 /* Date+Conversions.swift */; };
+		B75F63341EEA97B900FFB2B9 /* MoviesViewController_UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F63331EEA97B900FFB2B9 /* MoviesViewController_UITableViewDataSource.swift */; };
+		B75F63361EEA988700FFB2B9 /* MoviesViewController_UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F63351EEA988700FFB2B9 /* MoviesViewController_UITableViewDelegate.swift */; };
+		B75F633D1EEA99D400FFB2B9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75F633C1EEA99D400FFB2B9 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +59,11 @@
 		B7139C3D1EDF6D9A004D3A42 /* RootRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		B7139C3F1EDF6DDC004D3A42 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		B75F632C1EE9345D00FFB2B9 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		B75F632E1EE978C600FFB2B9 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		B75F63301EEA91B200FFB2B9 /* Date+Conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Conversions.swift"; sourceTree = "<group>"; };
+		B75F63331EEA97B900FFB2B9 /* MoviesViewController_UITableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController_UITableViewDataSource.swift; sourceTree = "<group>"; };
+		B75F63351EEA988700FFB2B9 /* MoviesViewController_UITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController_UITableViewDelegate.swift; sourceTree = "<group>"; };
+		B75F633C1EEA99D400FFB2B9 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +117,18 @@
 		B7139C121EDF5E5F004D3A42 /* The Movie App */ = {
 			isa = PBXGroup;
 			children = (
-				B75F632C1EE9345D00FFB2B9 /* Response.swift */,
-				B7139C3C1EDF6D91004D3A42 /* Root */,
 				B7139C131EDF5E5F004D3A42 /* AppDelegate.swift */,
+				B75F632C1EE9345D00FFB2B9 /* Response.swift */,
+				B75F633C1EEA99D400FFB2B9 /* NetworkManager.swift */,
+				B7139C3C1EDF6D91004D3A42 /* Root */,
 				B7139C391EDF6623004D3A42 /* Entity */,
-				B7139C151EDF5E5F004D3A42 /* MoviesViewController.swift */,
-				B7139C351EDF65A1004D3A42 /* MoviesPresenter.swift */,
-				B7139C371EDF661E004D3A42 /* MoviesInteractor.swift */,
-				B7139C3A1EDF69EF004D3A42 /* MoviesRouter.swift */,
-				B7139C171EDF5E5F004D3A42 /* Main.storyboard */,
+				B75F63371EEA98E500FFB2B9 /* View */,
+				B75F63381EEA98FC00FFB2B9 /* Presenter */,
+				B75F63391EEA990300FFB2B9 /* Interactor */,
+				B75F633A1EEA990900FFB2B9 /* Router */,
+				B75F63321EEA920100FFB2B9 /* Extensions */,
+				B75F633B1EEA991200FFB2B9 /* Interface Builder */,
 				B7139C1A1EDF5E5F004D3A42 /* Assets.xcassets */,
-				B7139C1C1EDF5E5F004D3A42 /* LaunchScreen.storyboard */,
 				B7139C1F1EDF5E5F004D3A42 /* Info.plist */,
 			);
 			path = "The Movie App";
@@ -147,6 +158,58 @@
 				B7139C3F1EDF6DDC004D3A42 /* RootWireframe.swift */,
 			);
 			name = Root;
+			sourceTree = "<group>";
+		};
+		B75F63321EEA920100FFB2B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B75F63301EEA91B200FFB2B9 /* Date+Conversions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		B75F63371EEA98E500FFB2B9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B75F632E1EE978C600FFB2B9 /* MovieTableViewCell.swift */,
+				B7139C151EDF5E5F004D3A42 /* MoviesViewController.swift */,
+				B75F63331EEA97B900FFB2B9 /* MoviesViewController_UITableViewDataSource.swift */,
+				B75F63351EEA988700FFB2B9 /* MoviesViewController_UITableViewDelegate.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B75F63381EEA98FC00FFB2B9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B7139C351EDF65A1004D3A42 /* MoviesPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		B75F63391EEA990300FFB2B9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				B7139C371EDF661E004D3A42 /* MoviesInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		B75F633A1EEA990900FFB2B9 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B7139C3A1EDF69EF004D3A42 /* MoviesRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		B75F633B1EEA991200FFB2B9 /* Interface Builder */ = {
+			isa = PBXGroup;
+			children = (
+				B7139C171EDF5E5F004D3A42 /* Main.storyboard */,
+				B7139C1C1EDF5E5F004D3A42 /* LaunchScreen.storyboard */,
+			);
+			name = "Interface Builder";
 			sourceTree = "<group>";
 		};
 		D2E4D2722C6503F57B668D4C /* Frameworks */ = {
@@ -313,12 +376,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B75F63341EEA97B900FFB2B9 /* MoviesViewController_UITableViewDataSource.swift in Sources */,
+				B75F632F1EE978C600FFB2B9 /* MovieTableViewCell.swift in Sources */,
 				B7139C161EDF5E5F004D3A42 /* MoviesViewController.swift in Sources */,
 				B7139C141EDF5E5F004D3A42 /* AppDelegate.swift in Sources */,
 				B7139C341EDF6510004D3A42 /* Movie.swift in Sources */,
 				B7139C3B1EDF69EF004D3A42 /* MoviesRouter.swift in Sources */,
+				B75F63361EEA988700FFB2B9 /* MoviesViewController_UITableViewDelegate.swift in Sources */,
 				B7139C401EDF6DDC004D3A42 /* RootWireframe.swift in Sources */,
+				B75F63311EEA91B200FFB2B9 /* Date+Conversions.swift in Sources */,
 				B7139C3E1EDF6D9A004D3A42 /* RootRouter.swift in Sources */,
+				B75F633D1EEA99D400FFB2B9 /* NetworkManager.swift in Sources */,
 				B7139C381EDF661E004D3A42 /* MoviesInteractor.swift in Sources */,
 				B75F632D1EE9345D00FFB2B9 /* Response.swift in Sources */,
 				B7139C361EDF65A1004D3A42 /* MoviesPresenter.swift in Sources */,
