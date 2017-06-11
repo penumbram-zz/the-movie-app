@@ -25,9 +25,9 @@ class SearchCommand : Command {
     }
     
     func execute() {
-        NetworkManager.sharedInstance.request(endpointSearch, method: .get, parameters: ["api_key" : apiKey, "query" : self.query, "page" : self.page]).responseObject {[weak self] (response: DataResponse<MovieResponse>) in
+        NetworkManager.sharedInstance.request(endpointSearch, method: .get, parameters: ["api_key" : apiKey, "query" : self.query, "page" : self.page]).responseObject {(response: DataResponse<MovieResponse>) in
             if let movieResponse = response.result.value {
-                self?.completionHandler(movieResponse)
+                self.completionHandler(movieResponse)
             }
         }
     }
