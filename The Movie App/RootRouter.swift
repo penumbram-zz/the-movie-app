@@ -12,6 +12,6 @@ class RootRouter: RootWireframe {
     
     func presentMoviesScreen(in window: UIWindow) {
         window.makeKeyAndVisible()
-        window.rootViewController = MoviesRouter.assembleModule()
+        window.rootViewController = SearchRouter.assembleModule()
     }
 }

@@ -8,12 +8,9 @@
 
 import UIKit
 
-protocol MoviesWireframe: class {
-    weak var viewController: UIViewController? { get set }
+protocol MoviesWireframe : BaseWireframe {
     
     func presentDetails(forMovie movie: Movie)
-    
-    static func assembleModule() -> UIViewController
 }
 
 
