@@ -60,7 +60,13 @@ class MoviesViewController: UITableViewController, MoviesViewInterface, MovieTab
     }
     
     func showNoContentScreen() {
-        // TODO: Show custom empty screen.
+        let controller = UIAlertController(title: "No movie found", message: "Please try again with another search query", preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {[weak self] _ in
+            if let strongSelf = self {
+                _ = strongSelf.navigationController?.popViewController(animated: true)
+            }
+        }))
+        self.present(controller, animated: true, completion: nil)
     }
 
 }
