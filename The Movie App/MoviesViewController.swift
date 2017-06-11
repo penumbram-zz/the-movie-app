@@ -57,6 +57,9 @@ class MoviesViewController: UITableViewController, MoviesViewInterface, MovieTab
     func showMoviesData(_ movies: [Movie]) {
         self.movies.append(contentsOf: movies)
         self.tableView.reloadData()
+        if self.refreshControl != nil && self.refreshControl!.isRefreshing {
+            self.refreshControl!.endRefreshing()
+        }
     }
     
     func showNoContentScreen() {
@@ -107,8 +110,10 @@ extension MoviesViewController {
     }
     
     func refresh(_ sender: UIRefreshControl) {
-        //TODO: refresh all movies
-        //self.refreshControl?.endRefreshing()
+        page = 0
+        totalPages = 0
+        self.movies.removeAll()
+        fetchNewMoviesPage()
     }
 }
 
