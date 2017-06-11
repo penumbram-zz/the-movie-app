@@ -24,19 +24,14 @@ class MoviesRouter : MoviesWireframe
         let interactor = MoviesInteractor()
         let router = MoviesRouter()
         
-        let navigation = UINavigationController(rootViewController: view)
-        
         view.presenter = presenter
-        
         presenter.view = view
         presenter.interactor = interactor
         presenter.wireframe = router
-        
         interactor.output = presenter
-        
         router.viewController = view
         
-        return navigation
+        return view
     }
     
     func presentDetails(forMovie movie: Movie) {

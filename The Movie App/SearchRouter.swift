@@ -12,8 +12,7 @@ import UIKit
 
 protocol SearchWireframe: BaseWireframe {
     
-    func presentResults(forQuery query:String?)
-    
+    func presentMovies(forQuery : String)
 }
 
 
@@ -23,15 +22,27 @@ class SearchRouter : SearchWireframe {
     
     static func assembleModule() -> UIViewController {
         
-        let viewController = UIViewController(nibName: "SearchViewController", bundle: Bundle.main)
+        let viewController = SearchViewController(nibName: "SearchViewController", bundle: Bundle.main)
 
+        let presenter = SearchPresenter()
+        let interactor = SearchInteractor()
         let router = SearchRouter()
         
+        let navigation = UINavigationController(rootViewController: viewController)
+
+        viewController.presenter = presenter
+        presenter.view = viewController
+        presenter.interactor = interactor
+        presenter.wireframe = router
+        interactor.output = presenter
+        
         router.viewController = viewController
-        return viewController
+        return navigation
     }
     
-    internal func presentResults(forQuery query: String?) {
-        print("Will present results here")
+    internal func presentMovies(forQuery query: String) {
+        let moviesModuleViewController = MoviesRouter.assembleModule() as! MoviesViewController
+        moviesModuleViewController.query = query
+        viewController?.navigationController?.pushViewController(moviesModuleViewController, animated: true)
     }
 }

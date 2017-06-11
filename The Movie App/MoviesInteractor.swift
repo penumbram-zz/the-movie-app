@@ -7,14 +7,12 @@
 //
 
 import Foundation
-import Alamofire
-import AlamofireObjectMapper
 
 /*
  * Protocol that defines the Interactor's use case.
  */
 protocol MoviesInteractorInput: class {
-    func fetchMovies()
+    func fetchMovies(query : String,page : Int)
 }
 
 
@@ -29,13 +27,10 @@ class MoviesInteractor : MoviesInteractorInput
     weak var output: MoviesInteractorOutput!
     
     // MARK: MoviesInteractorInput
-    func fetchMovies() {
-        NetworkManager.sharedInstance.request(endpointSearch, method: .get, parameters: ["api_key" : apiKey, "query" : "batman"]).responseObject { (response: DataResponse<MovieResponse>) in
-            if let movieResponse = response.result.value {
-                //TODO: make it into Movie object instead of NSDictionary
-                self.output.moviesFetched(movies: movieResponse.results!)
-            }
-        }
+    func fetchMovies(query : String,page : Int) {
+        SearchCommand(query: query, page: page) {(movieResponse : MovieResponse) in
+            self.output.moviesFetched(movieResponse: movieResponse)
+        }.execute()
     }
     
 }

@@ -14,14 +14,14 @@
         <scene sceneID="ds6-bF-fSC">
             <objects>
                 <tableViewController storyboardIdentifier="movies_view_controller" id="E6m-Uc-zpr" customClass="MoviesViewController" customModule="The_Movie_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="fiU-p0-lcZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="150" sectionHeaderHeight="18" sectionFooterHeight="18" id="fiU-p0-lcZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MoviesViewControllerTableViewCellReuseIdentifier" rowHeight="200" id="5gX-Yp-e4c" customClass="MoviesTableViewCell" customModule="The_Movie_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5gX-Yp-e4c" id="5JQ-Ef-ICr">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>

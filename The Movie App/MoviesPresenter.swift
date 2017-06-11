@@ -8,12 +8,10 @@
 
 import Foundation
 
-/*
- * Protocol that defines the commands sent from the View to the Presenter.
- */
-protocol MoviesModuleInterface: class {
-    func updateView()
+protocol MoviesModuleInterface : class {
+    func fetchMovies(query : String,page : Int)
     func showDetailsForMovie(_ movie: Movie)
+    func hideFooter()
 }
 
 
@@ -21,38 +19,49 @@ protocol MoviesModuleInterface: class {
  * Protocol that defines the commands sent from the Interactor to the Presenter.
  */
 protocol MoviesInteractorOutput: class {
-    func moviesFetched(movies: [Movie])
+    func moviesFetched(movieResponse: MovieResponse)
 }
 
 class MoviesPresenter : MoviesModuleInterface, MoviesInteractorOutput
 {
+    
     // Reference to the View (weak to avoid retain cycle).
     weak var view: MoviesViewInterface!
     
     // Reference to the Interactor's interface.
     var interactor: MoviesInteractorInput!
     
+    // Reference to the Router
     var wireframe: MoviesWireframe!
     
     
     //MARK: MoviesModuleInterface
     
-    func updateView() {
-        self.interactor.fetchMovies()
+    internal func fetchMovies(query: String, page: Int) {
+        self.interactor.fetchMovies(query: query, page: page)
     }
     
     func showDetailsForMovie(_ movie: Movie) {
         self.wireframe.presentDetails(forMovie: movie)
     }
     
+    internal func hideFooter() {
+        self.view.hideFooter()
+    }
+    
     //MARK: MoviesInteractorOutput
     
-    func moviesFetched(movies: [Movie]) {
+    func moviesFetched(movieResponse: MovieResponse) {
+        let movies = movieResponse.results!
         if movies.count > 0 {
         //    self.movies = movies
+            self.view.totalPages = movieResponse.totalPages!
+            self.view.page = movieResponse.page!
             self.view.showMoviesData(movies)
         } else {
             self.view.showNoContentScreen()
         }
     }
+    
+    
 }
