@@ -16,7 +16,6 @@ protocol MoviesViewInterface: class {
     
     func showMoviesData(_ movies: [Movie])
     func showNoContentScreen()
-    func hideFooter()
 }
 
 class MoviesViewController: UITableViewController, MoviesViewInterface, MovieTableFooterDelegate {
@@ -26,6 +25,9 @@ class MoviesViewController: UITableViewController, MoviesViewInterface, MovieTab
     
     var presenter: MoviesModuleInterface!
     var movies : [Movie] = []
+    
+    // MARK: MoviesViewInterface Variables
+    
     internal var query: String 
     internal var page: Int
     internal var totalPages: Int
@@ -40,10 +42,9 @@ class MoviesViewController: UITableViewController, MoviesViewInterface, MovieTab
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "\"\(self.query)\" results:"
-        self.tableView.register(UINib(nibName: "MovieTableFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: self.footerViewReuseIdentifier)
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
-        self.tableView.estimatedRowHeight = 150.0;
-        fetchNewMoviesPage()
+        self.setupTableView()
+        self.setupRefreshControl()
+        self.fetchNewMoviesPage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,11 +62,10 @@ class MoviesViewController: UITableViewController, MoviesViewInterface, MovieTab
     func showNoContentScreen() {
         // TODO: Show custom empty screen.
     }
-    
-    internal func hideFooter() {
-        self.tableView.tableFooterView = nil
-    }
-    
+
+}
+
+extension MoviesViewController {
     // MARK: MovieTableFooterDelegate
     
     func didTapLoadMore() {
@@ -80,5 +80,29 @@ class MoviesViewController: UITableViewController, MoviesViewInterface, MovieTab
         self.presenter.fetchMovies(query: query, page: page)
     }
 
+}
+
+extension MoviesViewController {
+    func setupTableView() {
+        self.tableView.register(UINib(nibName: "MovieTableFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: self.footerViewReuseIdentifier)
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 150.0;
+    }
+}
+
+
+extension MoviesViewController {
+    
+    func setupRefreshControl() {
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl!.addTarget(self, action: #selector(MoviesViewController.refresh(_:)), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(self.refreshControl!) // not required when using UITableViewController
+    }
+    
+    func refresh(_ sender: UIRefreshControl) {
+        //TODO: refresh all movies
+        //self.refreshControl?.endRefreshing()
+    }
 }
 

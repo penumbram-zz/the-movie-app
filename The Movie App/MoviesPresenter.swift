@@ -11,7 +11,6 @@ import Foundation
 protocol MoviesModuleInterface : class {
     func fetchMovies(query : String,page : Int)
     func showDetailsForMovie(_ movie: Movie)
-    func hideFooter()
 }
 
 
@@ -43,10 +42,6 @@ class MoviesPresenter : MoviesModuleInterface, MoviesInteractorOutput
     
     func showDetailsForMovie(_ movie: Movie) {
         self.wireframe.presentDetails(forMovie: movie)
-    }
-    
-    internal func hideFooter() {
-        self.view.hideFooter()
     }
     
     //MARK: MoviesInteractorOutput
