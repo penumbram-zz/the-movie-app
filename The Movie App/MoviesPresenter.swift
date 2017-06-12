@@ -47,15 +47,14 @@ class MoviesPresenter : MoviesModuleInterface, MoviesInteractorOutput
     //MARK: MoviesInteractorOutput
     
     func moviesFetched(movieResponse: MovieResponse) {
-        let movies = movieResponse.results!
-        if movies.count > 0 {
-        //    self.movies = movies
-            self.view.totalPages = movieResponse.totalPages!
-            self.view.page = movieResponse.page!
-            self.view.showMoviesData(movies)
-        } else {
+        guard let movies = movieResponse.results, movies.count > 0 else {
             self.view.showNoContentScreen()
+            return
         }
+        
+        self.view.totalPages = movieResponse.totalPages!
+        self.view.page = movieResponse.page!
+        self.view.showMoviesData(movies)
     }
     
     
