@@ -6,8 +6,6 @@
 //  Copyright © 2017 Tolga Caner. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
 protocol SearchWireframe: BaseWireframe {
