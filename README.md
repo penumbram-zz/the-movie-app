@@ -28,7 +28,9 @@ The delegates and data sources are implemented in extensions with the naming con
 
 ### Features: ###
 
-All the features described in the documents are present in the solution. In addition, the movie results tableview has pagination function. Also, the cell clicks can be implemented using the function showDetailsForMovie in MoviesPresenter.swift to show a detail page, which wasn't a requirement but would be nice to have. It's commented as a "TODO" in the code.
+All the features described in the documents are present in the solution. In addition, the movie results tableview has pagination function. Also, the cell clicks can be implemented using the function showDetailsForMovie in MoviesPresenter.swift to show a detail page, which wasn't a requirement but would be nice to have in the future. It's commented as a "TODO" in the code.
+
+There's no loading screen but if required, it can be easily implemented using [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD) 
 
 
 ### Tests: ###
