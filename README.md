@@ -1,29 +1,13 @@
-# README #
+# The Movie App #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This repository contains the solution for the challenge project called "The Movie App"
 
-### What is this repository for? ###
+### External Libraries used ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+3 external pods have been used:
 
-### How do I get set up? ###
+Alamofire v4.4.0
+AlamofireObjectMapper v4.1.0
+SDWebImage v3.8.2
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+After downloading the source, you need to "cd" to the root folder and make a pod install by typing in  "pod install" to the root. After that, you may use the .xcworkspace file to open the project in XCode. Fore more on cocoapods, check here.
