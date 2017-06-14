@@ -16,16 +16,22 @@ extension SearchViewController : UITextFieldDelegate{
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.target = HideKeyboardTarget(textField: textField)
+        self.target = HideKeyboardTarget(textField: textField, tableView : self.suggestionsTableView,view: self.view)
         
         self.hideKeyboardGestureRecognizer = UITapGestureRecognizer(target: self.target, action: #selector(HideKeyboardTarget.handleTap(_:)))
+        self.hideKeyboardGestureRecognizer!.delegate = self.target
+        
         self.view.addGestureRecognizer(hideKeyboardGestureRecognizer!)
+        
+        self.toggleSuggestions()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if self.hideKeyboardGestureRecognizer != nil {
             self.view.removeGestureRecognizer(self.hideKeyboardGestureRecognizer!)
         }
+        self.toggleSuggestions()
     }
     
 }
+

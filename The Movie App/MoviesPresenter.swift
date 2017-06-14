@@ -32,11 +32,12 @@ class MoviesPresenter : MoviesModuleInterface, MoviesInteractorOutput
     
     // Reference to the Router
     var wireframe: MoviesWireframe!
-    
+    var latestQuery : String?
     
     //MARK: MoviesModuleInterface
     
     internal func fetchMovies(query: String, page: Int) {
+        latestQuery = query
         self.interactor.fetchMovies(query: query, page: page)
     }
     
@@ -50,6 +51,10 @@ class MoviesPresenter : MoviesModuleInterface, MoviesInteractorOutput
         guard let movies = movieResponse.results, movies.count > 0 else {
             self.view.showNoContentScreen()
             return
+        }
+        
+        if latestQuery != nil {
+            self.interactor.saveQuery(latestQuery!)
         }
         
         self.view.totalPages = movieResponse.totalPages!

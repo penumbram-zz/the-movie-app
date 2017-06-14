@@ -13,6 +13,7 @@ import Foundation
  */
 protocol MoviesInteractorInput: class {
     func fetchMovies(query : String,page : Int)
+    func saveQuery(_ query: String)
 }
 
 
@@ -31,6 +32,14 @@ class MoviesInteractor : MoviesInteractorInput
         SearchCommand(query: query, page: page) {(movieResponse : MovieResponse) in
             self.output.moviesFetched(movieResponse: movieResponse)
         }.execute()
+    }
+    
+    func saveQuery(_ query: String) {
+        do {
+            try SuggestionsLocalDataManager.saveSuggestion(query: query)
+        } catch  {
+            print(error.localizedDescription)
+        }
     }
     
 }

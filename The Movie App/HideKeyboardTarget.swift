@@ -8,11 +8,15 @@
 
 import UIKit
 
-class HideKeyboardTarget : NSObject {
+class HideKeyboardTarget : NSObject, UIGestureRecognizerDelegate {
     
     weak var textField : UITextField?
+    weak var view : UIView?
+    weak var tableView : UITableView?
     
-    init(textField : UITextField) {
+    init(textField : UITextField, tableView : UITableView, view : UIView) {
+        self.tableView = tableView
+        self.view = view
         self.textField = textField
     }
     
@@ -25,6 +29,15 @@ class HideKeyboardTarget : NSObject {
         if self.textField != nil && self.textField!.canResignFirstResponder {
             self.textField!.resignFirstResponder()
         }
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        // Block the recognition of tap gestures in the tableview.
+        if touch.view!.isDescendant(of: self.tableView!) {
+            return false
+        }
+        
+        return true
     }
     
 }
