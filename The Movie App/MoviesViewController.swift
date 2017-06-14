@@ -106,7 +106,6 @@ extension MoviesViewController {
         self.refreshControl = UIRefreshControl()
         self.refreshControl!.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl!.addTarget(self, action: #selector(MoviesViewController.refresh(_:)), for: UIControlEvents.valueChanged)
-        self.tableView.addSubview(self.refreshControl!) // not required when using UITableViewController
     }
     
     func refresh(_ sender: UIRefreshControl) {
