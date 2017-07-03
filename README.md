@@ -1,7 +1,5 @@
 # The Movie App #
 
-This repository contains the solution for the challenge project called "The Movie App"
-
 ### External Libraries used: ###
 
 3 external pods have been used:
@@ -18,21 +16,14 @@ The app relies mainly on the [VIPER](http://clean-swift.com/clean-swift-ios-arch
 
 As a result of it, there are 3 VIPER modules:
 
-
-
 * The first is the Root Module, which is simply an entry router to the app. 
 * The second is the Search Module, handling the search screen and the suggestions mostly
 * The third is the result list screen, which handles the interactions in that screen.
 
 The delegates and data sources are implemented in extensions with the naming convention: <<View Controller's Name>>_<Delegate's Name> or <<View Controller's Name>>_<Datasource's Name> to make the code more readable and easier to maintain and work with.
 
-### Features: ###
-
-All the features described in the documents are present in the solution. In addition, the movie results tableview has pagination function. Also, the cell clicks can be implemented using the function showDetailsForMovie in MoviesPresenter.swift to show a detail page, which wasn't a requirement but would be nice to have in the future. It's commented as a "TODO" in the code.
-
 There's no loading screen but if required, it can be easily implemented using [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD) 
-
 
 ### Tests: ###
 
-There are a total of 6 unit tests in the The_Movie_AppTests.swift file. All of them must pass with the latest version of the code. The developmental approach in producing the tests was a test-last approach.
+There are a total of 6 unit tests in the The_Movie_AppTests.swift file. All of them must pass with the latest version of the code. The developmental approach in producing the tests was a test-last.
