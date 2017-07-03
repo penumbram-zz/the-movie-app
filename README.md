@@ -1,5 +1,18 @@
 # The Movie App #
 
+### Screens ###
+
+<table>
+  <tr>
+    <td>
+      <img src="./meta/image/1.png" width="200"/>
+      <img src="./meta/image/2.png" width="200"/>
+      <img src="./meta/image/3.png" width="200"/>
+      <img src="./meta/image/4.png" width="200"/>
+    </td>
+  </tr>
+</table>
+
 ### External Libraries used: ###
 
 3 external pods have been used:
